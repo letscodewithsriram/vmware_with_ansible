@@ -1,0 +1,23 @@
+---
+- hosts: localhost 
+  gather_facts: false
+  connection: local 
+  vars:
+        vcenter_server: "180.87.34.100"
+        vcenter_user: "administrator@vsphere.local"
+        vcenter_pass: "Swrap12@#"
+        datacenter_name: "dc01"
+        cluster_name: "cluster01"
+  tasks:
+  - name: "{{ inventory_hostname }}"
+    vmware_host_ntp:
+      hostname: "{{ vcenter_server }}"
+      username: "{{ vcenter_user }}"
+      password: "{{ vcenter_pass }}"
+      validate_certs: False
+      esxi_hostname: 180.87.34.100
+      cluster_name: '{{ cluster_name }}'
+      ntp_servers:
+        - 8.8.8.8
+        - 4.4.4.4
+    delegate_to: localhost
