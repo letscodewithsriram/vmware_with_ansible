@@ -1,0 +1,92 @@
+root@69513935f456:/training/ansible_vmware/ansible/esxi/config_template/vmware_with_ansible/ex01-changing-ntp-configuration# ansible-playbook -vvv config_esxi_ntp.yml
+ansible-playbook [core 2.11.1]
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.8/dist-packages/ansible
+  ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.8.5 (default, May 27 2021, 13:30:53) [GCC 9.3.0]
+  jinja version = 3.0.1
+  libyaml = True
+No config file found; using defaults
+host_list declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+script declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+auto declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+yaml declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+ini declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+Skipping due to inventory source not existing or not being readable by the current user
+toml declined parsing /etc/ansible/hosts as it did not pass its verify_file() method
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+redirecting (type: modules) ansible.builtin.vmware_host_ntp to community.vmware.vmware_host_ntp
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: config_esxi_ntp.yml ******************************************************************************************************************************************
+1 plays in config_esxi_ntp.yml
+Read vars_file 'all_config.yml'
+Read vars_file 'all_config.yml'
+Read vars_file 'all_config.yml'
+
+PLAY [localhost] *******************************************************************************************************************************************************
+Read vars_file 'all_config.yml'
+META: ran handlers
+Read vars_file 'all_config.yml'
+Read vars_file 'all_config.yml'
+
+TASK [localhost] *******************************************************************************************************************************************************
+task path: /training/ansible_vmware/ansible/esxi/vmware_with_ansible/ex01-changing-ntp-configuration/config_esxi_ntp.yml:8
+<localhost> ESTABLISH LOCAL CONNECTION FOR USER: root
+<localhost> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<localhost> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1622963758.3731875-262-125348959573813 `" && echo ansible-tmp-1622963758.3731875-262-125348959573813="` echo /root/.ansible/tmp/ansible-tmp-1622963758.3731875-262-125348959573813 `" ) && sleep 0'
+redirecting (type: modules) ansible.builtin.vmware_host_ntp to community.vmware.vmware_host_ntp
+Using module file /usr/local/lib/python3.8/dist-packages/ansible_collections/community/vmware/plugins/modules/vmware_host_ntp.py
+<localhost> PUT /root/.ansible/tmp/ansible-local-257686pjwkk/tmp5r0uc_rm TO /root/.ansible/tmp/ansible-tmp-1622963758.3731875-262-125348959573813/AnsiballZ_vmware_host_ntp.py
+<localhost> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1622963758.3731875-262-125348959573813/ /root/.ansible/tmp/ansible-tmp-1622963758.3731875-262-125348959573813/AnsiballZ_vmware_host_ntp.py && sleep 0'
+<localhost> EXEC /bin/sh -c '/usr/bin/python3 /root/.ansible/tmp/ansible-tmp-1622963758.3731875-262-125348959573813/AnsiballZ_vmware_host_ntp.py && sleep 0'
+<localhost> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1622963758.3731875-262-125348959573813/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost -> localhost] => {
+    "changed": false,
+    "host_ntp_status": {
+        "180.87.34.101": {
+            "changed": false,
+            "ntp_servers": [
+                "8.8.8.8",
+                "yahoo.co.in"
+            ]
+        }
+    },
+    "invocation": {
+        "module_args": {
+            "cluster_name": "cluster01",
+            "esxi_hostname": null,
+            "hostname": "180.87.34.100",
+            "ntp_servers": [
+                "8.8.8.8",
+                "yahoo.co.in"
+            ],
+            "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "port": 443,
+            "proxy_host": null,
+            "proxy_port": null,
+            "state": null,
+            "username": "administrator@vsphere.local",
+            "validate_certs": false,
+            "verbose": false
+        }
+    }
+}
+Read vars_file 'all_config.yml'
+META: ran handlers
+Read vars_file 'all_config.yml'
+META: ran handlers
+
+PLAY RECAP *************************************************************************************************************************************************************
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+root@69513935f456:/training/ansible_vmware/ansible/esxi/config_template/vmware_with_ansible/ex01-changing-ntp-configuration#
+

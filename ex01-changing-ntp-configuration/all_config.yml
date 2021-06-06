@@ -1,0 +1,5 @@
+vcenter_server: "180.87.34.100"
+vcenter_user: "administrator@vsphere.local"
+vcenter_pass: "Swrap12@#"
+datacenter_name: "dc01"
+cluster_name: "cluster01"
